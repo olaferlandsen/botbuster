@@ -2,6 +2,18 @@
 
 # Botbuster
 
+[![npm version](https://img.shields.io/npm/v/botbuster.svg)](https://www.npmjs.com/package/botbuster)
+[![Coverage Status](https://img.shields.io/codecov/c/github/olaferlandsen/botbuster)](https://codecov.io/gh/olaferlandsen/botbuster)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/botbuster)](https://bundlephobia.com/result?p=botbuster)
+[![Downloads](https://img.shields.io/npm/dw/botbuster.svg)](https://www.npmjs.com/package/botbuster)
+[![TypeScript](https://img.shields.io/badge/TypeScript-ready-3178c6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Ethical Tracking](https://img.shields.io/badge/ethics-user%20privacy%20friendly-success)](#ethics--legality)
+[![Known Vulnerabilities](https://snyk.io/test/npm/botbuster/badge.svg)](https://snyk.io/test/npm/botbuster)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/olaferlandsen/botbuster/issues)
+[![Issues](https://img.shields.io/github/issues/olaferlandsen/botbuster)](https://github.com/olaferlandsen/botbuster/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/olaferlandsen/botbuster)](https://github.com/olaferlandsen/botbuster/pulls)
+
 
 **Botbuster** is a lightweight JavaScript/TypeScript library designed to detect non-human behavior in browser environments. It helps determine whether a real user, a bot, or someone behind a virtual machine is interacting with your application.
 
