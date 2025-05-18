@@ -163,6 +163,42 @@ Custom detectors receive the same `Reporter` instance used by internal detectors
 * For advanced needs, you can subclass Detector and implement shared state or configuration logic.
 
 
+## Configuration Options
+BotBuster allows fine-tuning of detector behavior via an optional configuration object. You can pass this configuration globally to BotBuster, or individually to specific detectors if needed.
+
+```ts
+const botbuster = new BotBuster({
+  jumpThreshold: 150,          // px
+  linearityThreshold: 0.98,    // 0–1
+  minClickDuration: 20,        // ms
+  maxClickDuration: 800,       // ms
+  edgeThreshold: 10,           // px from edge
+  intervalMin: 5,              // ms
+  intervalMax: 200,            // ms
+});
+```
+
+### Available Options
+
+|      Property      |  Type  | Default |                                                         Description                                                         |
+|:------------------:|:------:|:-------:|:---------------------------------------------------------------------------------------------------------------------------:|
+| jumpThreshold      | number | 100     | Pixel threshold to detect a sudden mouse jump. Used by MouseJumpDetector.                                                   |
+| linearityThreshold | number | 0.99    | Value between 0 and 1 defining how straight a movement must be to be considered suspicious. Used by MouseLinearityDetector. |
+| minClickDuration   | number | 30      | Minimum click duration in milliseconds. Shorter clicks are considered suspicious. Used by ClickDurationDetector.            |
+| maxClickDuration   | number | 1000    | Maximum click duration in milliseconds. Longer clicks may indicate anomalies.                                               |
+| edgeThreshold      | number | 5       | Pixel distance from the window edges to trigger edge click detection. Used by ClickEdgeDetector.                            |
+| intervalMin        | number | 10      | Minimum interval (in ms) between mouse movements. Used by MouseIntervalDetector.                                            |
+| intervalMax        | number | 200     | Maximum interval (in ms) between mouse movements. Values outside this range may indicate automation.                        |
+
+
+### Per-detector configuration
+```ts
+import { ClickEdgeDetector } from 'botbuster';
+
+botbuster.use(new ClickEdgeDetector({
+  edgeThreshold: 15
+}));
+```
 
 
 ## Browser Compatibility
