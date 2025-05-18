@@ -65,5 +65,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/olaferlandsen/botbuster"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["json", "lcov", "text"]
   }
 }
