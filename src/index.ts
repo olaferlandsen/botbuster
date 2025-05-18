@@ -1,4 +1,4 @@
-import AbnormalBehavior from './AbnormalBehavior';
+import BotBuster from './BotBuster';
 
 import MouseLinearityDetector from './detectors/MouseLinearityDetector';
 import MouseJumpDetector from './detectors/MouseJumpDetector';
@@ -10,7 +10,7 @@ import HardwareDetector from './detectors/HardwareDetector';
 import TabVisibilityDetector from './detectors/TabVisibilityDetector';
 
 export {
-  AbnormalBehavior,
+  BotBuster,
   MouseLinearityDetector,
   MouseJumpDetector,
   ClickEdgeDetector,
@@ -21,4 +21,4 @@ export {
   TabVisibilityDetector
 };
 
-export default AbnormalBehavior;
+export default BotBuster;

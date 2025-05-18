@@ -60,5 +60,10 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "files": ["dist/"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olaferlandsen/botbuster"
   }
 }

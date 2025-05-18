@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>BotBuster Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 6px 12px;
+            margin-top: 5px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            overflow: auto;
+            max-height: 600px;
+        }
+    </style>
+</head>
+<body>
+<h1>BotBuster Detector Demo</h1>
+<p>This demo initializes all detectors and shows notifications in the console and below.</p>
+
+<script>
+    function linearMovement() {
+        let startX = 0;
+        let endX = 200;
+        let y = 0;
+        let currentX = startX;
+        let step = 1;
+        let interval = 20;
+
+        let intervalId = setInterval(() => {
+            if (currentX > endX) {
+                clearInterval(intervalId);
+                return;
+            }
+
+            let mouseMoveEvent = new MouseEvent("mousemove", {
+                clientX: currentX,
+                clientY: y,
+                bubbles: true,
+            });
+
+            document.dispatchEvent(mouseMoveEvent);
+            currentX += step;
+        }, interval);
+    }
+    function jumpDetector () {
+        document.dispatchEvent(new MouseEvent("mousemove", {
+            clientX: 0,
+            clientY: 0,
+            bubbles: true,
+        }));
+        document.dispatchEvent(new MouseEvent("mousemove", {
+            clientX: 100,
+            clientY: 100,
+            bubbles: true,
+        }));
+    }
+</script>
+<section>
+    <button onclick="linearMovement()">MouseLinearityDetector</button>
+    <button onclick="jumpDetector()">MouseJumpDetector</button>
+</section>
+
+<section>
+    <h2>Test Output</h2>
+    <pre id="log"></pre>
+</section>
+
+
+<script type="module">
+    import BotBuster, {
+        MouseLinearityDetector,
+        MouseJumpDetector,
+        ClickEdgeDetector,
+        ClickOutsideDetector,
+        MouseIntervalDetector,
+        ClickDurationDetector,
+        HardwareDetector,
+        TabVisibilityDetector
+    } from '../dist/index.esm.js';
+
+    const ab = new BotBuster({
+        autoLog: false,
+
+    });
+
+    ab.use(new MouseLinearityDetector(ab.config, ab.reporter));
+    ab.use(new MouseJumpDetector(ab.config, ab.reporter));
+    ab.use(new ClickEdgeDetector(ab.config, ab.reporter));
+    ab.use(new ClickOutsideDetector(ab.config, ab.reporter));
+    ab.use(new MouseIntervalDetector(ab.config, ab.reporter));
+    ab.use(new ClickDurationDetector(ab.config, ab.reporter));
+    ab.use(new HardwareDetector(ab.config, ab.reporter));
+    ab.use(new TabVisibilityDetector(ab.config, ab.reporter));
+
+    const log = document.getElementById('log');
+
+
+    ab.listen(issue => {
+        const msg = `[${new Date(issue.time).toLocaleTimeString()}] ${issue.reason}`;
+        console.warn(msg);
+        const entry = document.createElement('div');
+        entry.textContent = msg;
+        log?.prepend(entry);
+    });
+</script>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ import Config from './core/Config';
 import Reporter from './core/Reporter';
 import { Detector } from './types';
 
-export default class AbnormalBehavior {
+export default class BotBuster {
   public config: Config;
   public reporter: Reporter;
   private detectors: Detector[] = [];
