@@ -1,10 +1,8 @@
+import { Detector } from '../types';
 /**
  * Detects sudden jumps in cursor position with delayed timing, which may indicate virtualization artifacts
  * or input redirection (e.g., from VMs or bots).
  */
-
-import { Detector } from '../types';
-
 export default class MouseJumpDetector implements Detector {
   private config: any;
   private reporter: any;

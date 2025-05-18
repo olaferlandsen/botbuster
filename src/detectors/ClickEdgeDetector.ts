@@ -1,14 +1,13 @@
-/**
- * Detects clicks occurring near the edges of DOM elements, which is uncommon for real users.
- * Useful to flag automated or imprecise input systems.
- */
 import { Detector } from '../types';
 
 interface ClickStats {
   count: number;
   edgeHits: number;
 }
-
+/**
+ * Detects clicks occurring near the edges of DOM elements, which is uncommon for real users.
+ * Useful to flag automated or imprecise input systems.
+ */
 export default class ClickEdgeDetector implements Detector {
   private config: any;
   private reporter: any;

@@ -1,10 +1,8 @@
+import { Detector } from '../types';
 /**
  * Detects mousemove events that occur at unnatural intervals (too fast or uniform).
  * Useful for identifying scripted or accelerated input.
  */
-
-import { Detector } from '../types';
-
 export default class MouseIntervalDetector implements Detector {
   private config: any;
   private reporter: any;

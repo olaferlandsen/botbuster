@@ -1,14 +1,12 @@
+import Config from './core/Config';
+import Reporter from './core/Reporter';
+import { Detector } from './types';
 /**
  * AbnormalBehavior orchestrates anomaly detection by managing detectors, config, and reporting.
  * It serves as the core entry point of the botbuster library, allowing users to register and run detectors.
  *
  * Usage: create an instance, register detectors with `.use()`, and start monitoring with `.start()`.
  */
-
-import Config from './core/Config';
-import Reporter from './core/Reporter';
-import { Detector } from './types';
-
 export default class BotBuster {
   public config: Config;
   public reporter: Reporter;

@@ -1,10 +1,8 @@
+import { Detector } from '../types';
 /**
  * Detects clicks that occur on a DOM element but not within its actual visual boundaries.
  * Flags events where `target` differs from the real element under the pointer.
  */
-
-import { Detector } from '../types';
-
 export default class ClickOutsideDetector implements Detector {
   private config: any;
   private reporter: any;

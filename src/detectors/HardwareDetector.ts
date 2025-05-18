@@ -1,10 +1,8 @@
+import { Detector } from '../types';
 /**
  * Inspects browser APIs to detect suspicious hardware or virtualization environments.
  * Looks at media device labels and WebGL vendor strings to flag virtual or emulated sources.
  */
-
-import { Detector } from '../types';
-
 export default class HardwareDetector implements Detector {
   private config: any;
   private reporter: any;

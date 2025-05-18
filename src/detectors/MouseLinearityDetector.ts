@@ -1,8 +1,3 @@
-/**
- * Detects whether mouse movement is excessively linear or unnaturally consistent in direction,
- * which can be a sign of automation or bot behavior.
- */
-
 import { Detector } from '../core/Detector';
 import Config from '../core/Config';
 import Reporter from '../core/Reporter';
@@ -11,7 +6,10 @@ interface Position {
   x: number;
   y: number;
 }
-
+/**
+ * Detects whether mouse movement is excessively linear or unnaturally consistent in direction,
+ * which can be a sign of automation or bot behavior.
+ */
 export default class MouseLinearityDetector extends Detector {
   private positions: Position[] = [];
   private linearityScores: number[] = [];
