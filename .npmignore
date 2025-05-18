@@ -1,0 +1,8 @@
+__tests__/
+*.test.ts
+coverage/
+rollup.config.js
+tsconfig.json
+jest.config.mjs
+.gitignore
+*.log

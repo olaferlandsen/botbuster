@@ -1,0 +1,9 @@
+node_modules
+dist
+coverage
+*.log
+temp
+.DS_Store
+.env
+.idea
+.vsc
